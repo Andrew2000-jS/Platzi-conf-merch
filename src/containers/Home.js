@@ -1,7 +1,13 @@
 import React from 'react';
 import Products from '../components/Products';
+import SEO from '../components/SEO';
 import initialState from '../initialState';
 
 export default function Home() {
-  return <Products products={initialState.products} />;
+  return (
+    <>
+      <SEO title="Platzi Conf Merch | Products" />
+      <Products products={initialState.products} />
+    </>
+  );
 }
