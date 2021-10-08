@@ -5,6 +5,7 @@ import useAddress from '../hooks/useAddress';
 
 import '../styles/componets/Success.css';
 import Map from '../components/Map';
+import SEO from '../components/SEO';
 
 export default function Succes() {
   const { state } = useContext(AppContext);
@@ -12,14 +13,21 @@ export default function Succes() {
   const { location } = useAddress(buyer[0]?.address);
 
   return (
-    <div className="Success">
-      <div className="Success-content">
-        <h2>{`${buyer[0]?.name}, Gracias por su compra`}</h2>
-        <span>Tu pedido llegara en 3 dias a tu direccion</span>
-        <div className="Success-map">
-          <Map data={location} />
+    <>
+      <SEO
+        title="Platzi Conf | Success"
+        name="order success"
+        content="checkout success"
+      />
+      <div className="Success">
+        <div className="Success-content">
+          <h2>{`${buyer[0]?.name}, Gracias por su compra`}</h2>
+          <span>Tu pedido llegara en 3 dias a tu direccion</span>
+          <div className="Success-map">
+            <Map data={location} />
+          </div>
         </div>
       </div>
-    </div>
+    </>
   );
 }
